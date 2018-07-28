@@ -1,4 +1,4 @@
-package java.com.moensun.spring.context;
+package com.moensun.spring.context;
 
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;

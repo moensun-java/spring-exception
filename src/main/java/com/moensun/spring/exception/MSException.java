@@ -1,8 +1,8 @@
-package java.com.moensun.spring.exception;
+package com.moensun.spring.exception;
 
 
-import java.com.moensun.spring.context.SpringContextHolder;
-import java.com.moensun.spring.resource.MSResourceBundle;
+import com.moensun.spring.context.SpringContextHolder;
+import com.moensun.spring.resource.MSResourceBundle;
 
 /**
  * Created by Bane.Shi.

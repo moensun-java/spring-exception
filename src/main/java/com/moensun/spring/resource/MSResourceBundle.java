@@ -1,4 +1,4 @@
-package java.com.moensun.spring.resource;
+package com.moensun.spring.resource;
 
 import org.springframework.context.MessageSource;
 

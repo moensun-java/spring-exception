@@ -1,4 +1,4 @@
-package java.com.moensun.spring.exception;
+package com.moensun.spring.exception;
 
 /**
  * Created by Bane.Shi.
