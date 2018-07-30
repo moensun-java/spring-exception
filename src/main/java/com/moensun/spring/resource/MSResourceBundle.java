@@ -48,7 +48,11 @@ public class MSResourceBundle {
 
 
 	public String text(String code,Object... params) {
-		return MessageFormat.format(ResourceProperties.codeMap.get(code),params);
+		String text = ResourceProperties.codeMap.get(code);
+		if( Objects.isNull(text) ){
+			return "";
+		}
+		return MessageFormat.format(text,params);
 	}
 
 	public void setPropertiesMap(ResourceBundle resourceBundle){
