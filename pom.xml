@@ -24,7 +24,7 @@
     </dependencies>
     <!--<name>${project.groupId}:${project.artifactId}</name>-->
     <description>Moensun Common</description>
-    <url>https://github.com/moensun-java/moensun-commons</url>
+    <url>https://github.com/moensun-java/spring-exception</url>
 
     <licenses>
         <license>
@@ -44,17 +44,17 @@
 
     <scm>
         <connection>
-            scm:git:https://github.com/moensun-java/moensun-commons.git
+            scm:git:https://github.com/moensun-java/spring-exception.git
         </connection>
         <developerConnection>
-            scm:git:https://github.com/moensun-java/moensun-commons.git
+            scm:git:https://github.com/moensun-java/spring-exception.git
         </developerConnection>
         <url>https://github.com/moensun-java/moensun-commons</url>
     </scm>
 
     <profiles>
         <profile>
-            <id>sonatype</id>
+            <id>ossrh</id>
             <distributionManagement>
                 <snapshotRepository>
                     <id>ossrh</id>
@@ -111,7 +111,7 @@
             </build>
         </profile>
         <profile>
-            <id>moensun</id>
+            <id>nexus</id>
             <distributionManagement>
                 <snapshotRepository>
                     <id>moensun</id>
