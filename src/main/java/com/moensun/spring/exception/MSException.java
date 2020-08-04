@@ -11,7 +11,7 @@ import com.moensun.spring.resource.MSResourceBundle;
  * Date: 2016/11/25
  * Time: 22:00
  */
-public class MSException extends MSBaseException {
+public abstract class MSException extends MSBaseException {
 
 	private final String code;
 	private final String message;

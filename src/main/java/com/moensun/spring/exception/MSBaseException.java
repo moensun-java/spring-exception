@@ -7,7 +7,7 @@ package com.moensun.spring.exception;
  * Date: 2018/1/31
  * Time: 下午10:56
  */
-public class MSBaseException extends RuntimeException {
+public abstract class MSBaseException extends RuntimeException {
 
     private final String code;
     private final String message;
@@ -34,6 +34,14 @@ public class MSBaseException extends RuntimeException {
     }
 
     public MSBaseException(String code, String message) {
+        super(message);
+        this.code = code;
+        this.message = message;
+        this.httpCode = null;
+    }
+
+    public MSBaseException(String code, String message, Throwable cause) {
+        super(message, cause);
         this.code = code;
         this.message = message;
         this.httpCode = null;
