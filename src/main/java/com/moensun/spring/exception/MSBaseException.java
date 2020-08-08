@@ -26,10 +26,10 @@ public abstract class MSBaseException extends RuntimeException {
         return httpCode;
     }
 
-    public MSBaseException(String code, Throwable cause) {
-        super(code, cause);
-        this.code = code;
-        this.message = null;
+    public MSBaseException(String message, Throwable cause) {
+        super(message, cause);
+        this.code = null;
+        this.message = message;
         this.httpCode = null;
     }
 

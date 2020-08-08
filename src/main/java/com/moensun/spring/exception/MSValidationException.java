@@ -1,6 +1,6 @@
 package com.moensun.spring.exception;
 
-public class MSValidationException extends MSException{
+public class MSValidationException extends MSException {
     public MSValidationException(String code, Object... params) {
         super(code, params);
     }
