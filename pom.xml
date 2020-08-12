@@ -6,7 +6,7 @@
 
     <groupId>com.moensun.spring</groupId>
     <artifactId>spring-exception</artifactId>
-    <version>1.0-RELEASE</version>
+    <version>1.0.1-RELEASE</version>
     <name>MoenSun:Spring:Exception</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>4.3.11.RELEASE</version>
+            <version>5.2.7.RELEASE</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

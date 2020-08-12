@@ -1,6 +1,10 @@
 package com.moensun.spring.exception;
 
 public class MSPermissionDeniedException extends MSException {
+    public MSPermissionDeniedException() {
+        super(null);
+    }
+
     public MSPermissionDeniedException(String code, Object... params) {
         super(code, params);
     }
