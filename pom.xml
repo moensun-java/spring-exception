@@ -57,11 +57,11 @@
             <distributionManagement>
                 <snapshotRepository>
                     <id>moensun</id>
-                    <url>http://maven.moensun.com/repository/maven-snapshots/</url>
+                    <url>http://nexus.moensun.com/repository/maven-snapshots/</url>
                 </snapshotRepository>
                 <repository>
                     <id>moensun</id>
-                    <url>http://maven.moensun.com/repository/maven-releases/</url>
+                    <url>http://nexus.moensun.com/repository/maven-releases/</url>
                 </repository>
             </distributionManagement>
         </profile>
@@ -109,6 +109,8 @@
                         <version>2.10.4</version>
                         <configuration>
                             <encoding>UTF-8</encoding>
+                            <source>1.8</source>
+                            <target>1.8</target>
                         </configuration>
                         <executions>
                             <execution>
