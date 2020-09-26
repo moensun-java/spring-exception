@@ -1,6 +1,7 @@
 package com.moensun.spring.resource;
 
 import org.springframework.context.MessageSource;
+import org.springframework.util.StringUtils;
 
 import java.text.MessageFormat;
 import java.util.*;
@@ -32,8 +33,8 @@ public class MSResourceBundle {
 	public void setResourceBundles(String[] resourcePaths) {
 		if( Objects.nonNull(resourcePaths) && resourcePaths.length>0 ){
 			List<ResourceBundle> resourceBundleList = new ArrayList<>();
-			for (int i=0;i<resourcePaths.length;i++){
-				String resourcePathFormat = resourcePaths[i].replace("classpath:","");
+			for (String resourcePath : resourcePaths) {
+				String resourcePathFormat = resourcePath.replace("classpath:", "");
 				ResourceBundle resourceBundleItem = ResourceBundle.getBundle(resourcePathFormat, this.local);
 				setPropertiesMap(resourceBundleItem);
 				resourceBundleList.add(resourceBundleItem);
@@ -49,8 +50,8 @@ public class MSResourceBundle {
 
 	public String text(String code,Object... params) {
 		String text = ResourceProperties.codeMap.get(code);
-		if( Objects.isNull(text) ){
-			return "";
+		if( StringUtils.isEmpty(text) ){
+			return code;
 		}
 		return MessageFormat.format(text,params);
 	}

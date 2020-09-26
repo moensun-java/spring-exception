@@ -9,9 +9,9 @@ package com.moensun.spring.exception;
  */
 public abstract class MSBaseException extends RuntimeException {
 
-    private final String code;
-    private final String message;
-    private final Integer httpCode;
+    private String code;
+    private String message;
+    private Integer httpCode;
 
     public String getCode() {
         return code;
