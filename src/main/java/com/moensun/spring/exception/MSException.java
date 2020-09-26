@@ -53,23 +53,25 @@ public class MSException extends MSBaseException {
     public MSException(Integer httpCode, Throwable cause, String code, Object... params) {
         super(code, cause);
         this.httpCode = httpCode;
-        this.code = code;
         ApplicationContext applicationContext = SpringContextHolder.getApplicationContext();
         if (Objects.nonNull(applicationContext)) {
             this.msResourceBundle = SpringContextHolder.getApplicationContext().getBean(MSResourceBundle.class);
             this.message = msResourceBundle.text(code, params);
-        }else {
-        	this.code = "";
-        	this.message = code;
-		}
+            if (Objects.isNull(this.message)) {
+                this.message = code;
+            } else {
+                this.code = code;
+            }
+        } else {
+            this.message = code;
+        }
     }
 
     @Override
     public String toString() {
         return "MSException{" +
                 "code='" + code + '\'' +
-                ", message='" + message + '\'' +
-                ", msResourceBundle=" + msResourceBundle +
+                ", message='" + message +
                 '}';
     }
 }

@@ -51,7 +51,7 @@ public class MSResourceBundle {
 	public String text(String code,Object... params) {
 		String text = ResourceProperties.codeMap.get(code);
 		if( StringUtils.isEmpty(text) ){
-			return code;
+			return null;
 		}
 		return MessageFormat.format(text,params);
 	}
