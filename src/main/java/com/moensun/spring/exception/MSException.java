@@ -1,12 +1,6 @@
 package com.moensun.spring.exception;
 
 
-import com.moensun.spring.context.SpringContextHolder;
-import com.moensun.spring.resource.MSResourceBundle;
-import org.springframework.context.ApplicationContext;
-
-import java.util.Objects;
-
 /**
  * Created by Bane.Shi.
  * Copyright MoenSun
@@ -14,64 +8,82 @@ import java.util.Objects;
  * Date: 2016/11/25
  * Time: 22:00
  */
-public class MSException extends MSBaseException {
+public class MSException extends RuntimeException {
 
     private String code;
     private String message;
     private Integer httpCode;
-    private transient MSResourceBundle msResourceBundle;
 
     public String getCode() {
         return code;
     }
 
-	@Override
-	public String getMessage() {
-		return message;
-	}
+    @Override
+    public String getMessage() {
+        return message;
+    }
 
-	public Integer getHttpCode() {
+    public Integer getHttpCode() {
         return httpCode;
     }
 
-    public MSResourceBundle getMsResourceBundle() {
-        return msResourceBundle;
+    public MSException(String message) {
+        super(message);
+        this.message = message;
     }
 
-    public MSException(String code, Object... params) {
-        this(null, null, code, params);
+    public MSException(String message, Throwable cause) {
+        super(message, cause);
+        this.code = null;
+        this.message = message;
+        this.httpCode = null;
     }
 
-    public MSException(Integer httpCode, String code, Object... params) {
-        this(httpCode, null, code, params);
+    public MSException(String code, String message) {
+        super(message);
+        this.code = code;
+        this.message = message;
+        this.httpCode = null;
     }
 
-    public MSException(Throwable cause, String code, Object... params) {
-        this(null, cause, code, params);
+    public MSException(String code, String message, Throwable cause) {
+        super(message, cause);
+        this.code = code;
+        this.message = message;
+        this.httpCode = null;
     }
 
-    public MSException(Integer httpCode, Throwable cause, String code, Object... params) {
-        super(code, cause);
+    public MSException(String code, String message, Integer httpCode) {
+        this.code = code;
+        this.message = message;
         this.httpCode = httpCode;
-        ApplicationContext applicationContext = SpringContextHolder.getApplicationContext();
-        if (Objects.nonNull(applicationContext)) {
-            this.msResourceBundle = SpringContextHolder.getApplicationContext().getBean(MSResourceBundle.class);
-            this.message = msResourceBundle.text(code, params);
-            if (Objects.isNull(this.message)) {
-                this.message = code;
-            } else {
-                this.code = code;
-            }
-        } else {
-            this.message = code;
-        }
     }
 
-    @Override
-    public String toString() {
-        return "MSException{" +
-                "code='" + code + '\'' +
-                ", message='" + message +
-                '}';
+    public MSException(String message, String code, String message1, Integer httpCode) {
+        super(message);
+        this.code = code;
+        this.message = message1;
+        this.httpCode = httpCode;
+    }
+
+    public MSException(String message, Throwable cause, String code, String message1, Integer httpCode) {
+        super(message, cause);
+        this.code = code;
+        this.message = message1;
+        this.httpCode = httpCode;
+    }
+
+    public MSException(Throwable cause, String code, String message, Integer httpCode) {
+        super(cause);
+        this.code = code;
+        this.message = message;
+        this.httpCode = httpCode;
+    }
+
+    public MSException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, String code, String message1, Integer httpCode) {
+        super(message, cause, enableSuppression, writableStackTrace);
+        this.code = code;
+        this.message = message1;
+        this.httpCode = httpCode;
     }
 }

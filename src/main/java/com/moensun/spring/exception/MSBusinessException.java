@@ -1,6 +1,6 @@
 package com.moensun.spring.exception;
 
-public class MSBusinessException extends MSException {
+public class MSBusinessException extends MSResourceException {
 
     public MSBusinessException(String code, Object... params) {
         super(code, params);
